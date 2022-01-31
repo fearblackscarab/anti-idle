@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap css -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- my css -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body class="body h-100">
+    <header class="header" id="header">
+        <div class="container">
+            <div class="row">
+                <!-- display currency's -->
+                <div class="currency-div col-4" id="currenctDiv">
+                    <div class="row">
+                        <!-- primary currency -->
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="coin-container col-4">
+                                    <div class="yellow-coin-border coin-border">
+                                        <div class="yellow-coin coin-img"><span class="coin-position">Y</span></div>
+                                    </div>
+                                </div>
+                                <div class="coin-text col-8" id="yellowCoin">0</div>
+                            </div>
+                        </div>
+                        <!-- secondary currency -->
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="coin-container col-4">
+                                    <div class="green-coin-border coin-border">
+                                        <div class="green-coin coin-img"><span class="coin-position">G</span></div>
+                                    </div>
+                                </div>
+                                <div class="coin-text col-8" id="greenCoin">0</div>
+                            </div>
+                        </div>
+                        <!-- rare currency -->
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="coin-container col-4">
+                                    <div class="white-coin-border coin-border">
+                                        <div class="white-coin coin-img"><span class="coin-position">W</span></div>
+                                    </div>
+                                </div>
+                                <div class="coin-text col-8" id="whiteCoin">0</div>
+                            </div>
+                        </div>
+                        <!-- idle currency -->
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="coin-container col-4">
+                                    <div class="blue-coin-border coin-border">
+                                        <div class="blue-coin coin-img"><span class="coin-position">B</span></div>
+                                    </div>
+                                </div>
+                                <div class="coin-text col-8" id="blueCoin">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="name-title-div col-3">
+                    <div class="name" id="name">@username
+                    </div>
+                    <div class="title" id="title">
+                        no-title
+                    </div>
+                </div>
+                <div class="exp-bar-div col-5">
+                    <!-- div inside div that will increase in width base on xp till next lvl -->
+                    <div class="exp-bar" title="experience Bar" id="expBar">
+                        <div class="exp-progress" id="expProgress">
+                        </div>
+                        <div class="exp-text" id="expText"> <span id="currentExp">0</span>/<span
+                                id="toNextLvl">10</span></div>
+                        <img class="img-fluid lvl-star" src="./media/lvlStar.PNG" alt="level star">
+                        <div class="lvl-display" id="lvlDisplay">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main" id="main">
+        <!-- aligns the game area with the idle bar -->
+        <div class="game-align">
+            <div class="container">
+                <div class="row">
+                    <!-- main game area -->
+                    <div class="game-area-div col-8">
+                        <div class="game-area" id="gameArea">
+                        </div>
+                    </div>
+                    <!-- idle side bar -->
+                    <div class="idle-bar-div col-3">
+                        <div class="idle-progress-title">Anti-Idle
+                        </div>
+                        <div class="idle-bar">
+                            <div class="idle-progress" id="idleProgress">
+                            </div>
+                            <p class="idle-bar-percent" id="idleBarPercent">0%</p>
+                        </div>
+                        <div class="idle-toggle" id="idleToggle">
+                            <div class="idle-toggle-title" id="idleToggleTitle">IDLE MODE</div>
+                            <div class="idle-toggle-status" id="idleToggleStatus">OFF</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sound-display" id="soundDisplay">
+            SOUND:ON
+        </div>
+        <div class="cheat-display" id="cheatDisplay">
+        </div>
+    </main>
+    <footer class="footer" id="footer">
+        <!-- sidebar footer from bootstrap -->
+        <nav class="navbar navbar-light fixed-bottom bot-nav">
+            <div class="container-fluid g-0">
+                <div class="row col-12 g-0">
+                    <button class="navbar-toggler col-1 footer-items text-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand col-12 footer-items text-center" href="#">Menu</a>
+                </div>
+                <div class="offcanvas offcanvas-end offcanvas-style" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">More Tools Coming Soon</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <!-- <li class="nav-item side-nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Stats</a>
+                            </li> -->
+                            <li><input type="button" class="dropdown-item dropdown-text" onclick="soundToggle()" value="Toggle Sound"></li>
+                            <li class="nav-item side-nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cheats
+                                </a>
+                                <ul class="dropdown-menu side-dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li><input type="button" class="dropdown-item dropdown-text" onclick="autoClick()" value="Auto Click"></li>
+                                    <li><input type="button" class="dropdown-item dropdown-text" onclick="autoUpgrade()" value="Auto Upgrade"></li>
+                                    <li><input type="button" class="dropdown-item dropdown-text" onclick="cheatUnlocked()" value="Cheat Toggle"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </footer>
+    <!-- my js -->
+    <audio src="/audio/click.wav" id="softMoneyClick"></audio>
+    <audio src="/audio/impact.wav" id="impactSound"></audio>
+    <script src="js/app.js"></script>
+    <script src="js/dev_auto.js"></script>
+</body>
+
+</html>

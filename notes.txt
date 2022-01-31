@@ -1,0 +1,48 @@
+//here for reference
+
+exp progress bar need to increase based on the percentage of exp earned till next lvl
+
+examples:
+
+0/10=0%
+1/10=10%
+
+easy enough on a small scale, but i need it to be dynamic for each time the lvl increases and exp needed increases
+
+250/10,000=2.5% // but how do i code it where this is the same function as 1/10 to check the percentage
+10,000 divided by 100=1,000 //which is 1 percent
+
+
+//this is the answer i have calculated should work
+
+0.025*expBar.width= this.value // this.value would be the amount of width of the exp bar
+
+(currentExp/neededExp)*expBar.width
+
+
+
+
+//current projects 
+
+want to have multiple buttons for different types of upgrades 
+
+upgrades:
+        money earned //done
+        speed //done
+        type of coin earned //progress
+        
+        upgrade cost reduction // maybe this one could be difficult
+
+
+want to have some kind of dropdown for changing options in game area
+
+button clicker || some kind of click the game area for income that can be upgraded, earn 2nd || 3rd type of coin
+
+
+// not before presentation
+money printer || some kind of background income that can be upgraded with the 3rd || 4th type of coin
+
+
+// toggle idle/anti-idle for idle bar
+
+// footer nav bar
