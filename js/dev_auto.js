@@ -25,6 +25,8 @@ const autoUpgrader=()=>{
     plusFiveUpgrade();
     plusTenUpgrade();
     autoUpgrade();
+    passiveAmountUpgrade();
+    passiveSpeedUpgrade()
 }
 const autoUpgrade=()=>{
     if(cheat){

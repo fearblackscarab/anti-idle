@@ -145,13 +145,13 @@ const earnProgress = () => {
 
     if (yellowCoinValue >= earnProgressCost) {
         if (yellowCoinMultiplier <= 10) {
-            yellowCoinMultiplier += 5
+            yellowCoinMultiplier += 4
         } else {
             yellowCoinMultiplier *= 2;
         }
         yellowCoinValue -= earnProgressCost;
         if (earnProgressCost <= 10) {
-            earnProgressCost += 6
+            earnProgressCost += 4
         } else {
             earnProgressCost *= 3;
         }
@@ -165,7 +165,7 @@ const earnProgress = () => {
 const speedProgress = () => {
     let speedProgressCostDisplay = document.getElementById('speedProgressCostDisplay');
     if (yellowCoinValue >= speedProgressCost) {
-        idleBarSpeed -= 1
+        idleBarSpeed -= 2
         yellowCoinValue -= speedProgressCost;//stay
         speedProgressCost *= 3;//adjust maybe
         speedProgressCostDisplay.innerHTML = `cost:${speedProgressCost}`;//new cost
@@ -332,7 +332,7 @@ let clickPlusTen = 10;
 // click passive upgrade
 let clickPassive = false;
 let clickPassiveAmount = 1;
-let clickPassiveSpeed = 800;
+let clickPassiveSpeed = 1000;
 
 // click upgrade cost
 let clickPlusOneCost = 1;
@@ -406,7 +406,7 @@ const greedClick = () => {
     if(sound){
         softMoneyClick.play()
     }
-    if (whiteCoinValue >= 5000 && !cheatUnlock) {
+    if (whiteCoinValue >= 2000 && !cheatUnlock) {
         let clickPassiveUnlock = document.getElementById('clickPassiveUnlock');
         clickPassiveUnlock.innerHTML += `<input type="button" class="btn idle-upgrade-button" onclick="cheatUnlocked()" value="CHEAT">`
         cheatUnlock = true;
@@ -462,8 +462,8 @@ const passiveAmountUpgrade = () => {
         }
         whiteCoinValue -= clickPassiveAmountCost;
         whiteCoin.innerHTML = whiteCoinValue;
-        clickPassiveAmount *= 2;
-        clickPassiveAmountCost *= 2;
+        clickPassiveAmount *= 3;
+        clickPassiveAmountCost *= 4;
         clickPassiveAmountCostDisplay.innerHTML = `cost:${clickPassiveAmountCost}`;
     }
 }
@@ -474,7 +474,7 @@ const passiveSpeedUpgrade = () => {
     if (whiteCoinValue >= clickPassiveSpeedCost) {
         whiteCoinValue -= clickPassiveSpeedCost;
         clickPassiveSpeed -= 10;
-        clickPassiveSpeedCost *= 2;
+        clickPassiveSpeedCost *= 3;
         clickPassiveSpeedCostDisplay.innerHTML = `cost${clickPassiveSpeedCost}`;
         console.log(clickPassiveSpeed)
     }
