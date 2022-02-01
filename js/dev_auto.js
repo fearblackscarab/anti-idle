@@ -1,11 +1,9 @@
-// let gameArea=document.getElementById('gameArea');
 let cheat=false;
 
+//auto clicker
 
 const autoClicker=()=>{
     greedClick();
-    // console.clear()
-    // setInterval(, 5000);
      autoClick();
     }
 const autoClick=()=>{
@@ -19,6 +17,8 @@ const autoClick=()=>{
         return
     }
 }
+
+//auto upgrade
 
 const autoUpgrader=()=>{
     plusOneUpgrade();

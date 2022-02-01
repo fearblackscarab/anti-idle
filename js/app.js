@@ -2,9 +2,10 @@
 let gameArea = document.getElementById('gameArea');
 let secondHome=false;
 let secondGreed=false;
-let sound=true;
+let sound=false;
 
-//loading the page dynamicly at start, so it is easier to return to home page
+//home page load
+
 const homePage = () => {
     if(!secondHome){
 
@@ -73,29 +74,31 @@ let blueCoin = document.getElementById('blueCoin');
 // console.log(whiteCoin)
 // console.log(blueCoin)
 
-//setting currency variables
+//currency variables
 
 let yellowCoinValue = 0;
 let whiteCoinValue = 0;
 let greenCoinValue = 0;
 let blueCoinValue = 0;
 
-//exp bar variables
+//exp bar declaration
+
 let currentExp = document.getElementById('currentExp');
 let toNextLvl = document.getElementById('toNextLvl');
 let expProgress = document.getElementById('expProgress');
 let expBar = document.getElementById('expBar');
 let lvlDisplay = document.getElementById('lvlDisplay');
+
+//exp bar variables
+
 let expValue = 0;
 let expNeeded = 10;
-let lvl = 0;
-
-//function for displaying the exp
-
+let lvl = 1;
 let xpMultiplier = 5;
 let leftoverXp;
 let expProgressBar;
 
+//function for displaying the exp
 const expUpdate = () => {
     currentExp.innerHTML = expValue;
     toNextLvl.innerHTML = expNeeded;
@@ -104,6 +107,7 @@ const expUpdate = () => {
     expProgress.style.minWidth = '3px'
 }
 
+//function for increasing exp
 const expIncrease = () => {
     if (expValue < expNeeded) {
         expValue += xpMultiplier;
@@ -125,10 +129,7 @@ const expIncrease = () => {
     expUpdate();
 }
 
-
-
-//upgrades
-//variables
+//home page upgrades variables
 
 let earnProgressCost = 1;
 let speedProgressCost = 10;
@@ -140,7 +141,7 @@ let nextUnlock = 'Greed Clicker';
 
 //increase yellow coins earned
 const earnProgress = () => {
-    // upgrade display again because of scope
+    // upgrade display because of scope
     let earnProgressCostDisplay = document.getElementById('earnProgressCostDisplay');
 
     if (yellowCoinValue >= earnProgressCost) {
@@ -163,6 +164,7 @@ const earnProgress = () => {
 // increase speed of progress bar
 
 const speedProgress = () => {
+    // upgrade display because of scope
     let speedProgressCostDisplay = document.getElementById('speedProgressCostDisplay');
     if (yellowCoinValue >= speedProgressCost) {
         idleBarSpeed -= 2
@@ -175,9 +177,9 @@ const speedProgress = () => {
 
 // unlock new feature
 const unlockFeature = () => {
+    // upgrade display because of scope
     let unlockFeatureCostDisplay = document.getElementById('unlockFeatureCostDisplay');
     if (yellowCoinValue >= unlockFeatureCost && !greedClickerPage) {
-        let nextUnlockDisplay = document.getElementById('nextUnlockDisplay');
         greedClickerPage = true;
         yellowCoinValue -= unlockFeatureCost;//stay
         unlockFeatureCost *= 20;//adjust maybe
@@ -200,7 +202,6 @@ const unlockFeature = () => {
     <input type='button' onclick="unlockFeature()" class="btn idle-upgrade-button" id='nextUpgradeButton' value="More Soon">
     <div class="cost" id="unlockFeatureCostDisplay"></div>`
         showDropdown();
-        // console.log(nextUnlockDisplay)
     }
 }
 
@@ -220,9 +221,7 @@ const showDropdown = () => {
     </div>`
 }
 
-// dropdown selections
-
-// switching to Greed Clicker game screen
+// greed clicker load
 
 const clickerGreed = () => {
     if(!secondGreed){
@@ -294,14 +293,17 @@ else{
     gameArea.style.color = 'white';
     gameArea.style.fontWeight = 800;
 }
+    //only display passive upgrades if unlocked 
+
     let clickPassiveUnlock = document.getElementById('clickPassiveUnlock')
     if (clickPassive) {
         clickPassiveUnlock.innerHTML = `
         <input type="button" class="btn click-upgrade-button" onclick="passiveSpeedUpgrade()" value="Increase Speed">
         <p class="cost" id="clickPassiveSpeedCostDisplay">cost:${clickPassiveSpeedCost}</p>`;
     }
-    mousePosition();
     showDropdown();
+
+    //active item in dropdown list
 
     let ddItem = document.querySelectorAll('.dropdown-item-style')
     ddItem.forEach((item) => {
@@ -311,14 +313,14 @@ else{
     gameArea.addEventListener('click', greedClick, true);
 }
 
-// Greed Clicker
-
-// variables
+// greed clicker declaration
 let clickPlusOneCostDisplay = document.getElementById('clickPlusOneCostDisplay');
 let clickPlusFiveCostDisplay = document.getElementById('clickPlusFiveCostDisplay');
 let clickPlusTenCostDisplay = document.getElementById('clickPlusTenCostDisplay');
 let clickPassiveAmountCostDisplay = document.getElementById('clickPassiveAmountCostDisplay');
 let clickPassiveSpeedCostDisplay = document.getElementById('clickPassiveSpeedCostDisplay');
+
+//greed clicker variables
 
 // on click default
 let clickValue = 1;
@@ -343,8 +345,8 @@ let clickPlusTenCost = 25;
 let clickPassiveAmountCost = 20;
 let clickPassiveSpeedCost = 40;
 let cheatUnlock = false;
-// functions
 
+//click upgrade by 1
 const plusOneUpgrade = () => {
     let clickPlusOneCostDisplay = document.getElementById('clickPlusOneCostDisplay');
     if (whiteCoinValue >= clickPlusOneCost) {
@@ -356,6 +358,7 @@ const plusOneUpgrade = () => {
     }
 }
 
+//click upgrade by 5
 const plusFiveUpgrade = () => {
     let clickPlusFiveCostDisplay = document.getElementById('clickPlusFiveCostDisplay');
     if (whiteCoinValue >= clickPlusFiveCost) {
@@ -367,6 +370,7 @@ const plusFiveUpgrade = () => {
     }
 }
 
+//click upgrade by 10
 const plusTenUpgrade = () => {
     let clickPlusTenCostDisplay = document.getElementById('clickPlusTenCostDisplay');
     if (whiteCoinValue >= clickPlusTenCost) {
@@ -378,12 +382,7 @@ const plusTenUpgrade = () => {
     }
 }
 
-const mousePosition = (e) => {
-    gameArea.addEventListener('click', function (e) {
-        // console.log(e)
-    })
-}
-
+//toggle sound
 const soundToggle=()=>{
     let soundDisplay=document.getElementById('soundDisplay');
     if(sound){
@@ -395,7 +394,7 @@ const soundToggle=()=>{
     }
 }
 
-// on click for the greed clicker
+// on click
 const greedClick = () => {
     let softMoneyClick = document.getElementById('softMoneyClick');
     let greenCoinChance = Math.floor(Math.random() * 2);
@@ -411,9 +410,9 @@ const greedClick = () => {
         clickPassiveUnlock.innerHTML += `<input type="button" class="btn idle-upgrade-button" onclick="cheatUnlocked()" value="CHEAT">`
         cheatUnlock = true;
     }
-    // mousePosition();
 }
 
+//unlock cheats and display cheat status
 const cheatUnlocked = () => {
     let title = document.getElementById('title');
     let cheatDisplay=document.getElementById('cheatDisplay');
@@ -435,7 +434,6 @@ const cheatUnlocked = () => {
     }
 }
 
-// click passive income unlock and basic amount increase
 
 // set interval for the passive income
 const clickPassiveInterval = () => {
@@ -446,8 +444,7 @@ const clickPassiveInterval = () => {
     }, clickPassiveSpeed);
 }
 
-// upgrade amount of passive income
-
+// click passive income unlock and basic amount increase
 const passiveAmountUpgrade = () => {
     let clickPassiveAmountCostDisplay = document.getElementById('clickPassiveAmountCostDisplay');
     if (whiteCoinValue >= clickPassiveAmountCost) {
@@ -468,7 +465,7 @@ const passiveAmountUpgrade = () => {
     }
 }
 
-// passive income speed
+// passive income speed increase
 const passiveSpeedUpgrade = () => {
     let clickPassiveSpeedCostDisplay = document.getElementById('clickPassiveSpeedCostDisplay');
     if (whiteCoinValue >= clickPassiveSpeedCost) {
@@ -479,12 +476,17 @@ const passiveSpeedUpgrade = () => {
         console.log(clickPassiveSpeed)
     }
 }
-//idle bar default load
 
-let idleProgressHeight = 0;
+//idle bar declarations
+
 let idleProgress = document.getElementById('idleProgress');
 let idleBarPercent = document.getElementById('idleBarPercent');
+let idleToggleStatus = document.getElementById('idleToggleStatus');
+
+//idle bar variables
+let idleProgressHeight = 0;
 let idleBarSpeed = 25;
+let realIdle = false;
 
 // recieve yellow coins when idle bar event listener activates
 
@@ -512,7 +514,6 @@ const _mouseMove_ = () => {
     window.removeEventListener('click', _mouseMove_);
 }
 
-let realIdle = false;
 // function idleInterval(){
 const idleInterval = () => {
     let impactSound=document.getElementById('impactSound');
@@ -562,8 +563,7 @@ const idleInterval = () => {
     }
 }
 
-let idleToggleStatus = document.getElementById('idleToggleStatus');
-
+//Anti-Idle/Idle toggle
 idleToggleStatus.addEventListener('click', () => {
     if (!realIdle) {
         realIdle = true;
@@ -577,7 +577,6 @@ idleToggleStatus.addEventListener('click', () => {
 })
 
 // login prompt
-
 const login = () => {
     let name = document.getElementById('name');
     let user = prompt('username');
@@ -592,12 +591,11 @@ const login = () => {
     }
 }
 
+//default page load
 window.addEventListener('load', e => {
     e.preventDefault();
     login();
+    homePage();
     idleInterval();
     // clickerGreed();
-    homePage();
 })
-
-// gameArea.innerHTML=`` //testing the ability to munipulate the gameArea element
