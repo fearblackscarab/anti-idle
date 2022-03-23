@@ -1,0 +1,24 @@
+{
+  "name": "anti-idle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy":"vercel --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fearblackscarab/anti-idle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fearblackscarab/anti-idle/issues"
+  },
+  "homepage": "https://github.com/fearblackscarab/anti-idle#readme",
+  "dependencies": {
+    "vercel": "^24.0.0"
+  }
+}

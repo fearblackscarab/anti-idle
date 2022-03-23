@@ -23,7 +23,7 @@ const homePage = () => {
     <p class="upgrade-title">New Feature</p>
     <p class="upgrade-text" id="nextUnlockDisplay">${nextUnlock}</p>
     <input type='button' onclick="unlockFeature()" class="btn idle-upgrade-button" value="Upgrade">
-    <div class="cost" id="unlockFeatureCostDisplay">cost:${unlockFeatureCost}</div>`
+    <div class="cost" id="unlockFeatureCostDisplay">cost:${unlockFeatureCost}</div>`;
     gameArea.style.background = `url('./media/demon-test.PNG') no-repeat`;
     gameArea.style.backgroundSize = '100%';
     gameArea.style.color = 'white';
@@ -576,6 +576,19 @@ idleToggleStatus.addEventListener('click', () => {
     }
 })
 
+// working on making a tutorial
+
+// const ipTutorial=()=>{
+//     const bdTutorial=document.getElementById('bdTutorial');
+//     // const idleBarDiv=document.getElementById('idleBarDiv')
+//     bdTutorial.style.opacity='50%';
+//     bdTutorial.style.zIndex=100;
+//     bdTutorial.style.display='block';
+//     idleProgress.style.zIndex=101;
+//     // console.log(bdTutorial);
+//     // console.log(idleBarDiv);
+// }
+
 // login prompt
 const login = () => {
     let name = document.getElementById('name');
@@ -585,8 +598,8 @@ const login = () => {
     } else {
         user = prompt('plz add a username');
         name.innerText = user;
-        if (name.innerText == '@username') {
-            login();
+        if (name.innerText == ''){
+            name.innerText = 'Lazy Peon';
         }
     }
 }

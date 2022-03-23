@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- my css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/backdrop.css">
     <title>Document</title>
 </head>
 
@@ -105,19 +106,21 @@
                         </div>
                     </div>
                     <!-- idle side bar -->
-                    <div class="idle-bar-div col-3">
-                        <div class="idle-progress-title">Anti-Idle
-                        </div>
-                        <div class="idle-bar">
-                            <div class="idle-progress" id="idleProgress">
-                            </div>
-                            <p class="idle-bar-percent" id="idleBarPercent">0%</p>
-                        </div>
-                        <div class="idle-toggle" id="idleToggle">
-                            <div class="idle-toggle-title" id="idleToggleTitle">IDLE MODE</div>
-                            <div class="idle-toggle-status" id="idleToggleStatus">OFF</div>
-                        </div>
+                    <div class="bd-tutorial" id="bdTutorial">
                     </div>
+                        <div class="idle-bar-div col-3" id="idleBarDiv">
+                            <div class="idle-progress-title">Anti-Idle
+                            </div>
+                            <div class="idle-bar">
+                                <div class="idle-progress" id="idleProgress">
+                                </div>
+                                <p class="idle-bar-percent" id="idleBarPercent">0%</p>
+                            </div>
+                            <div class="idle-toggle" id="idleToggle">
+                                <div class="idle-toggle-title" id="idleToggleTitle">IDLE MODE</div>
+                                <div class="idle-toggle-status" id="idleToggleStatus">OFF</div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -164,9 +167,10 @@
             </div>
         </nav>
     </footer>
-    <!-- my js -->
-    <audio src="./audio/click.wav" id="softMoneyClick"></audio>
-    <audio src="./audio/impact.wav" id="impactSound"></audio>
+<!-- audio files -->
+<audio src="./audio/click.wav" id="softMoneyClick"></audio>
+<audio src="./audio/impact.wav" id="impactSound"></audio>
+<!-- my js -->
     <script src="js/app.js"></script>
     <script src="js/dev_auto.js"></script>
 </body>

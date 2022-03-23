@@ -17,3 +17,12 @@ show you can return to home percentage
 show off the js functions, scrolling from top to bottom, but only go into a couple things
 
 vertical idle bar and the auto upgrades are the highlights
+
+^^ First Presentation ^^
+
+Github Page:
+fearblackscarab.github.io/anti-idle/
+
+working on a modal for tutorial walkthroughs:
+
+need to sort out the z-index for the object being focused for the tutorial

@@ -1,41 +1,42 @@
-let cheat=false;
+let cheat = false;
 
 //auto clicker
 
-const autoClicker=()=>{
+const autoClicker = () => {
     greedClick();
-     autoClick();
-    }
-const autoClick=()=>{
-    if(cheat){
+    autoClick();
+};
+
+const autoClick = () => {
+    if (cheat) {
 
         setTimeout(() => {
             autoClicker();
         }, 25);
-    }else{
+    } else {
         alert('cheat is currently false');
         return
     }
-}
+};
 
-//auto upgrade
-
-const autoUpgrader=()=>{
+//auto upgrade function
+const autoUpgrader = () => {
     plusOneUpgrade();
     plusFiveUpgrade();
     plusTenUpgrade();
     autoUpgrade();
     passiveAmountUpgrade();
     passiveSpeedUpgrade()
-}
-const autoUpgrade=()=>{
-    if(cheat){
+};
+
+// auto upgrade call
+const autoUpgrade = () => {
+    if (cheat) {
         setTimeout(() => {
             autoUpgrader()
-        },25);
-    }else{
+        }, 25);
+    } else {
         alert('cheat is currently false');
         return
     }
-}
-
+};
